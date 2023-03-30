@@ -1,13 +1,20 @@
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar'
+import Home from './pages/home'
 
 function App() {
 
   return (
     <div className="App">
     <Navbar />
-      <h1 className=''>LOL</h1>
+     <div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+     </div>
+
     </div>
   )
 }
