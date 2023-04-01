@@ -5,6 +5,7 @@ import Navbar from './components/navbar'
 import Home from './pages/home'
 import Footer from './components/footer'
 import SendSos from './pages/SendSos'
+import Sos from './pages/sos'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/sendSos' element={<SendSos />} />
+          <Route path='/sos' element={<Sos />} />
         </Routes>
      </div>
 
