@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -8,7 +9,9 @@ const Home = () => {
           <div className='bg-red-300 p-5 w-80 h-80 flex flex-col justify-center items-center shadow-md mt-10 md:mr-10 '>
             <h2 className='font-bold text-3xl'>Emergency</h2>
             <svg className='' style={{width:'105px',fill:'white'}} clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-1.5c-4.69 0-8.497-3.808-8.497-8.498s3.807-8.497 8.497-8.497 8.498 3.807 8.498 8.497-3.808 8.498-8.498 8.498zm0-6.5c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" fill-rule="nonzero"/></svg>
-            <button className='bg-gray-200 bg-opacity-50 p-3 w-28 mt-4 rounded-lg shadow-md text-xl hover:scale-105'>SOS</button>
+            <Link to='/sendSos'>
+              <button className='bg-gray-200 bg-opacity-50 p-3 w-28 mt-4 rounded-lg shadow-md text-xl hover:scale-105'>SOS</button>
+            </Link>
           </div>
 
           <div className='bg-red-300 p-5 w-80 h-80 flex flex-col justify-center items-center shadow-md mt-10'>
