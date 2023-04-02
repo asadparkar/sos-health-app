@@ -11,7 +11,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa"
 
 const Logo = props => {
   return (
-        <svg style={{marginRight:'5px',fill:'#EA5455'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.867 3.493l4.133 3.444v5.127l-10 8.333-10-8.334v-5.126l4.133-3.444 5.867 3.911 5.867-3.911zm.133-2.493l-6 4-6-4-6 5v7l12 10 12-10v-7l-6-5z"/></svg>
+        <svg style={{marginRight:'5px',fill:'#19A7CE'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.867 3.493l4.133 3.444v5.127l-10 8.333-10-8.334v-5.126l4.133-3.444 5.867 3.911 5.867-3.911zm.133-2.493l-6 4-6-4-6 5v7l12 10 12-10v-7l-6-5z"/></svg>
   )
 }
 
@@ -42,7 +42,7 @@ const SocialButton = ({ children, label, href }) => {
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue("red.200", "gray.900")}
+      bg={useColorModeValue("blue.200", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
       className=''
     >

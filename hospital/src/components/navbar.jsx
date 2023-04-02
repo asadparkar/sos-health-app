@@ -55,14 +55,14 @@ export default function WithSubnavigation() {
         </Flex>
         
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }} style={{cursor:'pointer'}} onClick={()=>{navigate('/')}} >
-        <svg style={{marginRight:'5px',fill:'#EA5455'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.867 3.493l4.133 3.444v5.127l-10 8.333-10-8.334v-5.126l4.133-3.444 5.867 3.911 5.867-3.911zm.133-2.493l-6 4-6-4-6 5v7l12 10 12-10v-7l-6-5z"/></svg>
+        <svg style={{marginRight:'5px',fill:'#19A7CE'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.867 3.493l4.133 3.444v5.127l-10 8.333-10-8.334v-5.126l4.133-3.444 5.867 3.911 5.867-3.911zm.133-2.493l-6 4-6-4-6 5v7l12 10 12-10v-7l-6-5z"/></svg>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily = 'Raleway'
             fontWeight='500'
-            color={useColorModeValue("#EA5455", "white")}
+            color={useColorModeValue("#19A7CE", "white")}
           >
-            Health
+            Support
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -91,10 +91,10 @@ export default function WithSubnavigation() {
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
-            bg={"#EA5455"}
+            bg={"#19A7CE"}
             href={"#"}
             _hover={{
-              bg: "red.400"
+              bg: "blue.400"
             }}
           >
             Sign Up
@@ -172,7 +172,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "#EA5455" }}
+            _groupHover={{ color: "#19A7CE" }}
             fontWeight={500}
           >
             {label}
