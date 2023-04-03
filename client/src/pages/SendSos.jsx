@@ -1,17 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { db } from '../../firebase';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 
 const SendSos = () => {
-    const [isLocation,setLocation] = useState(false);
+    const [isLocation,setIsLocation] = useState(false);
     const [render,setRender] = useState(false)
     const [latitude,setLatitude] = useState();
     const [longitude,setLongitude] = useState();
+
+    const [location,setLocation] = useState({})
+    const  [suburb,setSuburb] = useState('')
+    const [village,setVillage] = useState('')
+    const [phoneno,setPhoneNo] = useState('')
+    const [newReason, setNewReason] = useState('')
+
     const [address,setAddress] = useState();
     const [phone,setPhone] = useState('')
+
     const navigate = useNavigate();
-    const redirectToSos = ()=>{
+    const redirectToSos = async ()=>{
+      try {
+      await addDoc(userRef, {phone: phoneno, reason: newReason, latitude: latitude, longitude : longitude})
+      } catch(err) {
+        console.log(err)
+      }
       navigate('/sos',{
         state:{
           latitude:latitude,
@@ -19,9 +33,25 @@ const SendSos = () => {
         }
       })
     }
+    
+    //firebase stuff
+    //collection ref
+    const userRef = collection(db,'userdata')
+    //getting collection(userdata)
+    getDocs(userRef)
+    .then((snapshot)=>{
+      let users = [];
+      snapshot.docs.forEach((doc)=>{
+        users.push({...doc.data(), id: doc.id})
+      })
+      console.log(users)
+    }).catch(err =>{
+      console.log(err.message)
+    })
+
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition((position)=>{
-            setLocation(true);
+            setIsLocation(true);
             axios.get(`https://us1.locationiq.com/v1/reverse?key=pk.53979086dda35ec34044c026cbb68f5d&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`).then((response)=>{
               console.log(response)
                 setAddress(response.data.display_name)
@@ -30,13 +60,21 @@ const SendSos = () => {
             })
             setLatitude(position.coords.latitude)
             setLongitude(position.coords.longitude)
+            // let updatedValue = {};
+            // updatedValue = {"Latitude":latitude, "Longitude":longitude};
+            // setLocation(location => ({
+            //   ...location,
+            //   ...updatedValue
+            // }));
         })
     },[render])
   return (
     <div className='font-medium flex justify-center' style={{fontFamily:'Raleway',height:'60vh'}}>
         <div className='p-4 bg-red-300 sm:w-1/2 w-full flex flex-col items-center'>
           <h1 className='text-3xl font-black mt-10'>Phone Number</h1>
-          <input onChange={(e)=>{setPhone(e.target.value)}} className='p-2 bg-gray-200 rounded-md w-5/6 mt-12' placeholder='Phone Number'/>
+          <input onChange={(e)=>{setPhoneNo(e.target.value)}} className='p-2 bg-gray-200 rounded-md w-5/6 mt-12' placeholder='Phone Number'/>
+          <h1 className='text-3xl font-black mt-10'>Emergency Reason</h1>
+          <input onChange={(e)=>{setNewReason(e.target.value)}} className='p-2 bg-gray-200 rounded-md w-5/6 mt-12' placeholder='your reason'/>
           <div className='flex justify-center items-center mt-5'>
 
           <div>
