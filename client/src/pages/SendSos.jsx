@@ -15,7 +15,6 @@ const SendSos = () => {
     const [village,setVillage] = useState('')
     const [phoneno,setPhoneNo] = useState('')
     const [newReason, setNewReason] = useState('')
-
     const [address,setAddress] = useState();
     const [phone,setPhone] = useState('')
 
@@ -29,7 +28,7 @@ const SendSos = () => {
       navigate('/sos',{
         state:{
           latitude:latitude,
-          longitude:longitude
+          longitude:longitude,
         }
       })
     }
@@ -44,7 +43,6 @@ const SendSos = () => {
       snapshot.docs.forEach((doc)=>{
         users.push({...doc.data(), id: doc.id})
       })
-      console.log(users)
     }).catch(err =>{
       console.log(err.message)
     })
