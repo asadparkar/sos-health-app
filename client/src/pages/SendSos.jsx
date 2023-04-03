@@ -1,25 +1,36 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const SendSos = () => {
     const [isLocation,setLocation] = useState(false);
     const [render,setRender] = useState(false)
+    const [latitude,setLatitude] = useState();
+    const [longitude,setLongitude] = useState();
     const  [suburb,setSuburb] = useState('')
     const [village,setVillage] = useState('')
     const [phone,setPhone] = useState('')
+    const navigate = useNavigate();
+    const redirectToSos = ()=>{
+      navigate('/sos',{
+        state:{
+          latitude:latitude,
+          longitude:longitude
+        }
+      })
+    }
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition((position)=>{
             setLocation(true);
             axios.get(`https://us1.locationiq.com/v1/reverse?key=pk.53979086dda35ec34044c026cbb68f5d&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`).then((response)=>{
                 setSuburb(response.data.address.suburb)
                 setVillage(response.data.address.village)
-
             }).catch((err)=>{
                 setRender(!render)
             })
-            console.log('Latitude is ',position.coords.latitude)
-            console.log('Longitude is ',position.coords.longitude)
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
         })
     },[render])
   return (
@@ -41,7 +52,7 @@ const SendSos = () => {
             <p className='text-md font-medium'>{suburb}, {village}</p>
           </div>}
 
-          <button className='bg-red-500 text-white p-2 rounded-md hover:bg-red-600 mt-7'>Send SOS</button>
+          <button className='bg-red-500 text-white p-2 rounded-md hover:bg-red-600 mt-7' onClick={redirectToSos}>Send SOS</button>
         </div>        
     </div>
   )

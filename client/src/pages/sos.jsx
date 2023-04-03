@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet';
 import ambulance from '../assets/ambulance.svg'
+import {useLocation} from 'react-router-dom'
 
 const Sos = () => {
+  const [latitude,setLatitude] = useState();
+  const [longitude,setLongitude] = useState();
   const iconPerson = new L.Icon({
       iconUrl: ambulance,
       iconAnchor: [17,46],
       iconSize: new L.Point(35, 35),
   });
+  const location = useLocation();
+
+  useEffect(()=>{
+    setLongitude(location.state.longitude);
+    setLatitude(location.state.latitude);
+  },[])
   return (
     <div className='md:flex-row flex-col-reverse' style={{display:'flex'}}>
     
@@ -27,13 +36,13 @@ const Sos = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[19.047321, 73.069908]}>
+        <Marker position={[latitude, longitude]}>
             <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
         </Marker>
 
-        <Marker position={[19.047321, 73.169908]} icon={iconPerson}>
+        <Marker position={[19.047321, 73.169208]} icon={iconPerson}>
             <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
