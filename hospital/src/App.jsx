@@ -4,12 +4,13 @@ import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Home from './pages/home'
 import { Route, Routes } from 'react-router-dom'
-import Ambulance from './pages/ambulance'
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Account from './components/Account';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute'
+import Ambulance from './pages/ambulance'
+import Hospital from './pages/hospital'
 function App() {
 
   return (
@@ -23,6 +24,11 @@ function App() {
       <Route path='/account' element={
         <ProtectedRoute>
           <Account />
+        </ProtectedRoute>
+      } />
+      <Route path='/hospital' element={
+        <ProtectedRoute>
+          <Hospital />
         </ProtectedRoute>
       } />
       <Route path='/ambulance' element={<Ambulance />} />
