@@ -2,10 +2,11 @@ import React from 'react'
 import {useState} from 'react'
 import { FaPhoneAlt,FaMapMarker,FaBriefcaseMedical} from "react-icons/fa";
 import { db } from '../firebase';
-import { addDoc, collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
-
+import { addDoc, collection, getDocs, onSnapshot, doc, query, where, updateDoc } from 'firebase/firestore';
+import { useEffect } from 'react';
 const Hospital = () => {
     const [isAmbulanceReady,setAmbulanceStatus] = useState(true);
+    const [userList,setUserList]= useState([])
 
     //user data collection ref
     const userRef = collection(db,'userdata')
@@ -21,13 +22,25 @@ const Hospital = () => {
     // firing query to get unfulfilled userdata
     const q = query(userRef, where("status","==","unfulfilled"))
     // getting real time unfulfilled data
-    onSnapshot(q, (snapshot)=>{
-      let pendingusers = [];
-      snapshot.docs.forEach((doc)=>{
-        pendingusers.push({...doc.data(), id: doc.id})
-      })
-      console.log(pendingusers)
+
+    const getUserList = onSnapshot(q, (snapshot)=>{
+      const filteredData = snapshot.docs.map((doc)=> ({...doc.data(),
+        id: doc.id,
+       }))
+  setUserList(filteredData)
     })
+
+    // accepting (changing staus of user sos)
+    const updateUserStatus = async(id) =>{
+      const userDoc =  doc(db, "userdata", id)
+      await updateDoc(userDoc,{status : "fulfilled"});
+      console.log("status changed")
+     }
+
+     useEffect(()=>{
+      getUserList();
+        // calling our async function inside useEffect, helps us use "async" with this   
+    },[])
   return (
     <div className='flex justify-between h-screen' style={{fontFamily:'Raleway',fontWeight:'bold'}}>
         <div style={{}}>
@@ -80,21 +93,26 @@ const Hospital = () => {
         <div style={{width:'40vw'}} className='bg-blue-200 p-5'>
           <h1 className='text-3xl'>SOS Requests</h1>
           <div className='bg-white bg-opacity-60 p-2 rounded-lg mt-5'>
-        
-              <div className='items-center' style={{display:'flex'}}>
+          <div>
+          {userList.map((users)=>(
+        <div key={users.id}>
+          <div className='items-center' style={{display:'flex'}}>
                 <FaPhoneAlt />
-                <p className='ml-2' style={{fontFamily:'Roboto'}}>7977567790</p>
-              </div>
-              <div className='items-center mt-2' style={{display:'flex'}}>
-                <FaMapMarker />
-                <p className='ml-2'>Users Location here</p>
+                <p className='ml-2' style={{fontFamily:'Roboto'}}>{users.phone}</p>
               </div>
               <div className='items-center mt-2' style={{display:'flex'}}>
                 <FaBriefcaseMedical />
-                <p className='ml-2'>Possible Heart Attack</p>
+                <p className='ml-2'>{users.reason}</p>
               </div>
-              <button className='bg-green-600 p-1 text-white rounded-md mt-3'>Accept</button>
-
+              <div className='items-center mt-2' style={{display:'flex'}}>
+                <FaMapMarker />
+                <p className='ml-2'>Latitude : {users.latitude} Longitude : {users.longitude} </p>
+              </div>
+      <button className='bg-green-600 p-1 text-white rounded-md mt-3' onClick={()=>{updateUserStatus(users.id)}}>Accept</button>
+      {/* <p>accepting changes status of request to fulfilled</p> */}
+        </div>
+      ))}
+          </div>
           </div>
         </div>
     </div>
