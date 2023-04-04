@@ -7,21 +7,25 @@ import { addDoc, collection, getDocs } from 'firebase/firestore';
 const SendSos = () => {
     const [isLocation,setIsLocation] = useState(false);
     const [render,setRender] = useState(false)
-    const [latitude,setLatitude] = useState();
-    const [longitude,setLongitude] = useState();
-
+ 
+   
     const [location,setLocation] = useState({})
     const  [suburb,setSuburb] = useState('')
     const [village,setVillage] = useState('')
+    //client info being sent to db
+    const [status, setStatus] = useState('unfulfilled')
     const [phoneno,setPhoneNo] = useState('')
     const [newReason, setNewReason] = useState('')
+    const [latitude,setLatitude] = useState();
+    const [longitude,setLongitude] = useState();
+
     const [address,setAddress] = useState();
     const [phone,setPhone] = useState('')
 
     const navigate = useNavigate();
     const redirectToSos = async ()=>{
       try {
-      await addDoc(userRef, {phone: phoneno, reason: newReason, latitude: latitude, longitude : longitude})
+      await addDoc(userRef, {phone: phoneno, reason: newReason, latitude: latitude, longitude : longitude, status : status})
       } catch(err) {
         console.log(err)
       }

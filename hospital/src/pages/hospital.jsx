@@ -1,9 +1,33 @@
 import React from 'react'
 import {useState} from 'react'
 import { FaPhoneAlt,FaMapMarker,FaBriefcaseMedical} from "react-icons/fa";
+import { db } from '../firebase';
+import { addDoc, collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
 
 const Hospital = () => {
     const [isAmbulanceReady,setAmbulanceStatus] = useState(true);
+
+    //user data collection ref
+    const userRef = collection(db,'userdata')
+    // getting userdata
+    //   onSnapshot(userRef, (snapshot)=>{
+    //   let users = [];
+    //   snapshot.docs.forEach((doc)=>{
+    //     users.push({...doc.data(), id: doc.id})
+    //   })
+    //   console.log(users)
+    // })
+
+    // firing query to get unfulfilled userdata
+    const q = query(userRef, where("status","==","unfulfilled"))
+    // getting real time unfulfilled data
+    onSnapshot(q, (snapshot)=>{
+      let pendingusers = [];
+      snapshot.docs.forEach((doc)=>{
+        pendingusers.push({...doc.data(), id: doc.id})
+      })
+      console.log(pendingusers)
+    })
   return (
     <div className='flex justify-between h-screen' style={{fontFamily:'Raleway',fontWeight:'bold'}}>
         <div style={{}}>
