@@ -9,15 +9,10 @@ const Ambulance = () => {
 
   useEffect(()=>{
     navigator.geolocation.watchPosition((position)=>{
-      if (!latitude || !longitude){
-        setRender(!render)
-        return;
-
-      }
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude)
     })
-  },[render])
+  },[])
   return (
     <div className=''>
      <p>Latitude:- {latitude}</p>
