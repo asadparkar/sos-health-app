@@ -5,13 +5,19 @@ const Ambulance = () => {
   const [AmbulanceStatus,setAmbulanceStatus] = useState('free');
   const [latitude,setLatitude] = useState();
   const [longitude,setLongitude] = useState();
+  const [render,setRender] = useState(false);
 
   useEffect(()=>{
     navigator.geolocation.watchPosition((position)=>{
+      if (!latitude || !longitude){
+        setRender(!render)
+        return;
+
+      }
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude)
     })
-  })
+  },[render])
   return (
     <div className=''>
      <p>Latitude:- {latitude}</p>
