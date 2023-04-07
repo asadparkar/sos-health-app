@@ -67,8 +67,8 @@ const gettingAll = async () => {
 
 const Ambulance = () => {
   const [AmbulanceStatus,setAmbulanceStatus] = useState('busy');
-  const [latitude,setLatitude] = useState();
-  const [longitude,setLongitude] = useState();
+  const [latitude,setLatitude] = useState(1);
+  const [longitude,setLongitude] = useState(2);
   const [render,setRender] = useState(false);
   const [ambs,setAmbs] = useState([])
   const [idFromAmb,setIdFromAmb] = useState('')
