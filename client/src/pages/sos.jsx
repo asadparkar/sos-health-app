@@ -26,11 +26,11 @@ const Sos = () => {
   // ambulance data collection ref
   const ambRef = collection(db,'ambulancedata')
 
-   // firing query to get "busy" ambulance data
+   // making query to get "busy" ambulance data
    const q2 = query(ambRef, where("ambStatus","==","busy")
    )
 
-   // getting real time free ambulance data
+   // getting real time "busy" ambulance data
    const getAmbList = onSnapshot(q2, (snapshott)=>{
     const filteredData = snapshott.docs.map((doc)=> ({...doc.data(),
       id: doc.id,
