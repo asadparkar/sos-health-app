@@ -8,7 +8,8 @@ const Hospital = () => {
     const [isAmbulanceReady,setAmbulanceStatus] = useState(true);
     const [userList,setUserList]= useState([])
     const [ambList,setAmbList] = useState([])
-
+    const [sentUserId, setSentUserId] = useState('')
+    const [sentAmbId, setSentAmbId] = useState('')
     //user data collection ref
     const userRef = collection(db,'userdata')
     // getting userdata
@@ -35,6 +36,7 @@ const Hospital = () => {
     const updateUserStatus = async(id) =>{
       const userDoc =  doc(db, "userdata", id)
       await updateDoc(userDoc,{status : "fulfilled"});
+      setSentUserId(id);
       console.log("status changed")
      }
 
@@ -58,11 +60,18 @@ const Hospital = () => {
     })
 
     // dispatching (changing staus of ambulance from free to busy)
-    const updateAmbulanceStatus = async(id) =>{
-      const ambDoc =  doc(db, "ambulancedata", id)
-      await updateDoc(ambDoc,{ambStatus : "busy"});
+    const updateAmbulanceStatus = async(ambid) =>{
+      const ambDoc =  doc(db, "ambulancedata", ambid)
+      await updateDoc(ambDoc,{ambStatus : "busy", userId: sentUserId});
+      setSentAmbId(ambid)
       console.log("status of ambulance changed")
+      console.log("user id sent to ambulance ")
      }
+     useEffect(()=>{
+      getAmbList();
+        // calling our async function inside useEffect, helps us use "async" with this   
+    },[])
+
 
   return (
     <div className='flex justify-between h-screen' style={{fontFamily:'Raleway',fontWeight:'bold'}}>
@@ -100,7 +109,7 @@ const Hospital = () => {
           <div>
           {userList.map((users)=>(
         <div key={users.id}>
-          <div className='items-center' style={{display:'flex'}}>
+              <div className='items-center' style={{display:'flex'}}>
                 <FaPhoneAlt />
                 <p className='ml-2' style={{fontFamily:'Roboto'}}>{users.phone}</p>
               </div>
