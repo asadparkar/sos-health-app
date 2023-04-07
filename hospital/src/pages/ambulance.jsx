@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaPhoneAlt,FaMapMarker,FaBriefcaseMedical, FaMap} from "react-icons/fa";
-import {doc, getDoc, query, where, collection, onSnapshot, getDocs} from 'firebase/firestore'
+import {doc, getDoc, query, where, collection, onSnapshot, getDocs,setDoc, updateDoc} from 'firebase/firestore'
 import { db } from '../firebase';
 
 let myvariable;
@@ -78,7 +78,7 @@ const Ambulance = () => {
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude)
     })
-    gettingAll();
+    getAmbs();
   },[])
 
 
@@ -157,6 +157,25 @@ const Ambulance = () => {
 //   })
 //   console.log(client)
 // })
+const docRef = doc(db, "ambulancedata", "w1ZP2HRRF81uo6IKrcli");
+const data = {
+  latitude: latitude,
+  longitude: longitude
+}
+setDoc(docRef, data, { merge:true })
+.then(docRef => {
+    console.log("Document Field has been updated successfully")
+})
+.catch(error => {
+    console.log(error);
+})
+//  updateDoc(docRef, {
+//   latitude: latitude,
+//   longitude: longitude
+// }).then(()=>{
+//   console.log("updated")
+// })
+
   return (
     <div className=''>
      <p>Latitude:- {latitude}</p>
