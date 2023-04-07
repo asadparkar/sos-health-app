@@ -6,6 +6,7 @@ import Home from './pages/home'
 import Footer from './components/footer'
 import SendSos from './pages/SendSos'
 import Sos from './pages/sos'
+import ChatBot from './pages/ChatBot'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/sendSos' element={<SendSos />} />
           <Route path='/sos' element={<Sos />} />
+          <Route path='/chatbot' element={<ChatBot />} />
         </Routes>
      </div>
 
