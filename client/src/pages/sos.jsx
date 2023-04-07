@@ -9,7 +9,10 @@ import { db } from '../../firebase';
 const Sos = () => {
   const [latitude,setLatitude] = useState();
   const [longitude,setLongitude] = useState();
-  const [ambList,setAmbList] = useState([])
+  const [ambList,setAmbList] = useState([{
+    latitude:1,
+    longitude:1
+  }])
   const iconPerson = new L.Icon({
       iconUrl: ambulance,
       iconAnchor: [17,46],
@@ -70,7 +73,7 @@ setAmbList(filteredData)
             A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
         </Marker>
-        <Marker position={[19.047321, 73.169208]} icon={iconPerson}>
+        <Marker position={[ambList[0].latitude, ambList[0].longitude]} icon={iconPerson}>
             <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
