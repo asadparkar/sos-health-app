@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import chatbot from '../assets/chatbot.png'
+import.meta.env.OPENAPI_KEY
 const ChatBot = () => {
 
     const [message,setMessage] = useState('');
@@ -11,6 +12,7 @@ const ChatBot = () => {
         reply:reply
     }]);
     const handleClick = async()=>{
+        const key = import.meta.env.VITE_KEY
         if (!message){
             return
         }
@@ -30,7 +32,7 @@ const ChatBot = () => {
 
         },{
             headers:{
-                'Authorization':'Bearer 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'
+                'Authorization':`Bearer ${key}`
             }
         }).then((response)=>{
             setLoading(false)
