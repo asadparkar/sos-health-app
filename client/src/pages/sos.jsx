@@ -9,7 +9,10 @@ import { db } from '../../firebase';
 const Sos = () => {
   const [latitude,setLatitude] = useState();
   const [longitude,setLongitude] = useState();
-  const [ambList,setAmbList] = useState([])
+  const [ambList,setAmbList] = useState([{
+    latitude:1,
+    longitude:1
+  }])
   const iconPerson = new L.Icon({
       iconUrl: ambulance,
       iconAnchor: [17,46],
