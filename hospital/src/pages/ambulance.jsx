@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaPhoneAlt,FaMapMarker,FaBriefcaseMedical, FaMap} from "react-icons/fa";
-import {doc, getDoc, query, where, collection, onSnapshot, getDocs,setDoc, updateDoc} from 'firebase/firestore'
+import {doc, getDoc, query, where, collection, onSnapshot, getDocs,setDoc, updateDoc, deleteDoc} from 'firebase/firestore'
 import { db } from '../firebase';
 
 let myvariable;
@@ -73,15 +73,27 @@ const Ambulance = () => {
   const [ambs,setAmbs] = useState([])
   const [idFromAmb,setIdFromAmb] = useState('')
   const [counter, setCounter] = useState(0);
+  const [userList,setUserList]= useState([])
+
   useEffect(()=>{
     navigator.geolocation.watchPosition((position)=>{
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude)
     })
     getAmbs();
+    getUserList();
   },[])
 
+  const userRef = collection(db,'userdata')
 
+  const q = query(userRef, where("status","==","fulfilled"))
+
+  const getUserList = onSnapshot(q, (snapshot)=>{
+    const filteredData = snapshot.docs.map((doc)=> ({...doc.data(),
+      id: doc.id,
+     }))
+setUserList(filteredData)
+  })
 //   const ambdocRef = doc(db, "ambulancedata", "sf");
 //  const docSnap = async() => await getDoc(ambdocRef);
 //   console.log("Document data:", docSnap.data());
@@ -175,7 +187,12 @@ setDoc(docRef, data, { merge:true })
 // }).then(()=>{
 //   console.log("updated")
 // })
-
+const deleteRequest = (id) =>{
+  const docRef = doc(db, "userdata", id)
+  deleteDoc(docRef).then(()=>{
+    console.log("request deleted")
+  })
+}
   return (
     <div className=''>
      <p>Latitude:- {latitude}</p>
@@ -185,24 +202,27 @@ setDoc(docRef, data, { merge:true })
 
       <div className='mt-5 bg-blue-200 p-4 rounded-lg justify-center flex items-center flex-col' style={{fontFamily:'Raleway'}}>
         <h1 className='text-2xl font-bold text-red-500'>Request</h1>
-        {AmbulanceStatus === 'busy'?<div className='flex justify-center items-center flex-col'>
-          <div className='flex items-center' style={{fontFamily:'Roboto',fontWeight:'bold',fontSize:20,marginTop:20}}>
-            <FaPhoneAlt />
-            <p className='ml-2'>7977567790</p>
+        {AmbulanceStatus === 'busy'?<div className='bg-white bg-opacity-60 p-2 rounded-lg mt-5'>
+          <div>
+          {userList.map((users)=>(
+        <div key={users.id}>
+              <div className='items-center' style={{display:'flex'}}>
+                <FaPhoneAlt />
+                <p className='ml-2' style={{fontFamily:'Roboto'}}>{users.phone}</p>
+              </div>
+              <div className='items-center mt-2' style={{display:'flex'}}>
+                <FaBriefcaseMedical />
+                <p className='ml-2'>{users.reason}</p>
+              </div>
+              <div className='items-center mt-2' style={{display:'flex'}}>
+                <FaMapMarker />
+                <p className='ml-2'>Latitude : {users.latitude} Longitude : {users.longitude} </p>
+              </div>
+              <button className='bg-red-400 p-1 text-white rounded-md' onClick={()=>{deleteRequest(users.id)}}>Delete</button>
+        </div>
+      ))}
           </div>
-          <div className='flex items-center' style={{fontFamily:'Roboto',fontWeight:'bold',fontSize:20,marginTop:20}}>
-            <FaMapMarker/>
-            <p className='ml-2'>Some Address will be here</p>
-          </div>
-          <div className='flex items-center' style={{fontFamily:'Roboto',fontWeight:'bold',fontSize:20,marginTop:20}}>
-            <FaBriefcaseMedical/>
-            <p className='ml-2'>Emergency Reason</p>
-          </div>
-          <div className='flex items-center' style={{fontFamily:'Roboto',fontWeight:'bold',fontSize:20,marginTop:20}}>
-            <FaMap/>
-            <p className='ml-2'>Latitude and Longitude</p>
-          </div>
-        </div>:<div className='text-center text-2xl'>No Emergencies are there</div>}
+          </div>:<div className='text-center text-2xl'>No Emergencies are there</div>}
         </div>
 
     </div>

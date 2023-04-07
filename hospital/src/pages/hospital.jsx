@@ -94,7 +94,7 @@ const Hospital = () => {
                 <FaMapMarker />
                 <p className='ml-2'>Latitude : {amb.latitude} Longitude : {amb.longitude} </p>
               </div>
-              <button className='bg-red-400 p-1 text-white rounded-md' onClick={()=>{updateAmbulanceStatus(amb.id)}}>Dispatch</button> */
+              <button className='bg-red-400 p-1 text-white rounded-md' onClick={()=>{updateAmbulanceStatus(amb.id)}}>Dispatch</button>
         </div>
       ))}
           </div>
@@ -122,7 +122,6 @@ const Hospital = () => {
                 <p className='ml-2'>Latitude : {users.latitude} Longitude : {users.longitude} </p>
               </div>
       <button className='bg-green-600 p-1 text-white rounded-md mt-3' onClick={()=>{updateUserStatus(users.id)}}>Accept</button>
-      {/* <p>accepting changes status of request to fulfilled</p> */}
         </div>
       ))}
           </div>
