@@ -47,14 +47,6 @@ setAmbList(filteredData)
     
     <div className='bg-red-200 p-5' style={{width:'100%',marginRight:'15px',height:'90vh',position:'relative'}}>
         <h1>TIPS GO HERE</h1>
-        <div>
-          {ambList.map((ambs)=>(
-            <div key={ambs.id}>
-              <div>{ambs.latitude}</div>
-              <div>{ambs.longitude}</div>
-            </div>
-          ))}
-        </div>
         <div style={{position:'absolute',bottom:0,display:'flex',flexDirection:'column'}}>
           <h2 className='text-xl font-bold'>General Instructions</h2>
           <p style={{marginLeft:'15px'}} className='text-lg'>Make sure that your Door is Open</p>
@@ -73,11 +65,21 @@ setAmbList(filteredData)
             A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
         </Marker>
-        <Marker position={[ambList[0].latitude, ambList[0].longitude]} icon={iconPerson}>
-            <Popup>
+        <div>
+        <div>
+          {ambList.map((ambs)=>(
+            <div key={ambs.id}>
+              <Marker position={[ambs.latitude,ambs.longitude]} icon={iconPerson}>
+               <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-        </Marker>
+               </Popup>
+             </Marker>
+              {/* <div>{ambs.latitude}</div>
+              <div>{ambs.longitude}</div> */}
+            </div>
+          ))}
+        </div>
+        </div>
         </MapContainer>
     </div>
     </div>
