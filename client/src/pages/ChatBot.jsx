@@ -12,7 +12,7 @@ const ChatBot = () => {
         reply:reply
     }]);
     const handleClick = async()=>{
-        const key = import.meta.env.VITE_KEY
+        const key = 'keywillbehere'
         if (!message){
             return
         }
