@@ -12,7 +12,7 @@ const ChatBot = () => {
         reply:reply
     }]);
     const handleClick = async()=>{
-        const key = ''
+        const key = 'key'
         if (!message){
             return
         }

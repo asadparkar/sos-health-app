@@ -82,6 +82,36 @@ export default function WithSubnavigation() {
             fontWeight={400}
             variant={"link"}
             href={"#"}
+            onClick={()=>{navigate('/ambulance')}}
+          >
+            Ambulance 
+          </Button>
+          <Button
+            as={"a"}
+            fontSize={"sm"}
+            fontWeight={400}
+            variant={"link"}
+            href={"#"}
+            onClick={()=>{navigate('/hospital')}}
+          >
+            Hospital
+          </Button>
+          <Button
+            as={"a"}
+            fontSize={"sm"}
+            fontWeight={400}
+            variant={"link"}
+            href={"#"}
+            onClick={()=>{navigate('/account')}}
+          >
+            Logout 
+          </Button>
+          <Button
+            as={"a"}
+            fontSize={"sm"}
+            fontWeight={400}
+            variant={"link"}
+            href={"#"}
           >
             Sign In
           </Button>

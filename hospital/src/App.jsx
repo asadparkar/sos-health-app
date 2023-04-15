@@ -31,7 +31,11 @@ function App() {
           <Hospital />
         </ProtectedRoute>
       } />
-      <Route path='/ambulance' element={<Ambulance />} />
+      <Route path='/ambulance' element={
+      <ProtectedRoute>
+          <Ambulance />
+      </ProtectedRoute>
+      }/>
      </Routes>
      </AuthContextProvider>
     </div>
