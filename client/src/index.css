@@ -7,3 +7,6 @@
 .chatarea::-webkit-scrollbar{
     display: none;
 }
+.proc_img:hover{
+    transform: scale(0.9);
+}
