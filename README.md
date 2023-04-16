@@ -55,6 +55,15 @@ The chatbot feature is designed to provide users with additional support and gui
 
 Overall, the inclusion of the general services page on our website provides users with a range of helpful and potentially life-saving resources. Whether they need emergency procedures guidance or help with managing their health and wellbeing, our website is a comprehensive and user-friendly platform that provides all the support that users need in an emergency.
 
+#### Hospital Side
+
+![Screenshot 2023-04-15 084543](https://user-images.githubusercontent.com/113037145/232286811-10cb0bac-02a5-4be6-bc02-3238c1ed6b77.png)
+
+![Screenshot 2023-04-15 141238](https://user-images.githubusercontent.com/113037145/232286882-673ee180-3f6b-47b8-9d2b-a5bac5305bcb.png)
+
+
+![Screenshot 2023-04-16 140614](https://user-images.githubusercontent.com/113037145/232286930-7763d2b5-e91b-407e-a13b-35eea1a59f56.png)
+
 ## Tech Stack
 ### Frontend
 
