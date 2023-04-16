@@ -56,6 +56,7 @@ In our website, we utilized Google Cloud virtual machines to provide a reliable 
 
 By using virtual machines, we were able to ensure that our servers had access to the resources they needed to handle a large number of simultaneous user requests. Additionally, we were able to easily scale up or down our server capacity as needed, allowing us to adjust to changes in traffic and demand.
 
+![Screenshot 2023-04-16 140614](https://cdn.discordapp.com/attachments/1096705600710262846/1097174364211908618/image.png)
 
 Overall, the inclusion of the general services page on our website provides users with a range of helpful and potentially life-saving resources. Whether they need emergency procedures guidance or help with managing their health and wellbeing, our website is a comprehensive and user-friendly platform that provides all the support that users need in an emergency.
 
