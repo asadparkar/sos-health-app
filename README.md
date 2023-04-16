@@ -52,8 +52,16 @@ The chatbot feature is designed to provide users with additional support and gui
 
 ![Screenshot 2023-04-15 122711](https://user-images.githubusercontent.com/113037145/232282991-d3d46f5b-965d-46fb-af64-999da79e9c6d.png)
 
+In our website, we utilized Google Cloud virtual machines to provide a reliable and scalable platform for our users. Specifically, we used virtual machines to host our backend servers, which handle user requests and coordinate ambulance dispatches.
+
+By using virtual machines, we were able to ensure that our servers had access to the resources they needed to handle a large number of simultaneous user requests. Additionally, we were able to easily scale up or down our server capacity as needed, allowing us to adjust to changes in traffic and demand.
+
 
 Overall, the inclusion of the general services page on our website provides users with a range of helpful and potentially life-saving resources. Whether they need emergency procedures guidance or help with managing their health and wellbeing, our website is a comprehensive and user-friendly platform that provides all the support that users need in an emergency.
+
+We utilized Firebase as a backend service to handle data storage, user authentication, and real-time messaging.
+
+One of the key benefits of Firebase is its real-time database, which allowed us to provide a seamless user experience for our users. This feature enabled us to display real-time updates and notifications to users as ambulance requests were received and processed.
 
 #### Hospital Side
 
@@ -63,6 +71,8 @@ Overall, the inclusion of the general services page on our website provides user
 
 
 ![Screenshot 2023-04-16 140614](https://user-images.githubusercontent.com/113037145/232286930-7763d2b5-e91b-407e-a13b-35eea1a59f56.png)
+
+https://user-images.githubusercontent.com/113037145/232311802-5a7920c1-c48c-4151-9659-98b9f7419d66.mp4
 
 ## Tech Stack
 ### Frontend
