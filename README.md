@@ -1,4 +1,9 @@
 # sos-health-app
+
+##CLIENT SIDE link - https://yoursos.site/
+
+##HOSPITAL SIDE link - https://spontaneous-mandazi-552d92.netlify.app/
+
 ## How to run on your system locally?
 
 1) Download the repository locally
@@ -37,7 +42,7 @@ As soon as the user sends an SOS request, nearby registered hospitals are immedi
 
 ![Screenshot 2023-04-15 123520](https://user-images.githubusercontent.com/113037145/232282831-826a65da-35e6-4055-95cc-ccd1bfd5e35b.png)
 
-To keep the user informed of the ambulance's progress, we provide a real-time map that tracks the ambulance's location and displays an estimated time of arrival. Additionally, our website provides the user with helpful tips and emergency procedures that they can follow while waiting for the ambulance to arrive. These tips may include basic first aid procedures, such as how to control bleeding or perform CPR, that can make a critical difference in emergency situations.
+To keep the user informed of the ambulance's progress, we provide a real-time map that tracks the ambulance's location and tracking on a map using leaflet.js, a javascript library. Additionally, our website provides the user with helpful tips and emergency procedures that they can follow while waiting for the ambulance to arrive. These tips may include basic first aid procedures, such as how to control bleeding or perform CPR, that can make a critical difference in emergency situations.
 
 In addition to the emergency ambulance service, our website features a comprehensive general services page that is designed to provide additional support to users during an emergency. The general services page includes two key sections - an emergency procedures page and a chatbot feature.
 
