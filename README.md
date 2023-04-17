@@ -30,19 +30,19 @@ npm run dev
 The primary objective of an emergency website is to provide users with a quick and easy way to request an ambulance in case of a medical emergency. Time is of the essence in medical emergencies, and every second counts when it comes to saving lives. Therefore, the website must be designed to be user-friendly and efficient in collecting the necessary information to dispatch the ambulance.Ultimately, the objective of an emergency website designed to call an ambulance is to potentially save lives by reducing the time required for emergency services to respond to a medical emergency. By providing users with a quick and easy way to request an ambulance and collecting the necessary information efficiently, an emergency website could help emergency responders arrive at the scene of a medical emergency more quickly and potentially save lives.
 
 ## Methodology
-The website is designed to call an ambulance to provide users with a simple and efficient way to request emergency medical services during a medical emergency. The website focuses primarily on the core functionality of calling an ambulance, collecting the necessary information, and dispatching the ambulance as quickly as possible.
+The website is designed using the most modern JS library, React js. It will be used to contact ambulances to provide users with a simple and efficient way to request emergency medical services during a medical emergency. The website focuses primarily on the core functionality of sending SOS to an ambulance, collecting the necessary information, and dispatching the ambulance as quickly as possible.
 
 ![Screenshot 2023-04-15 084432](https://user-images.githubusercontent.com/113037145/232282712-e1c3dcaa-7d09-4471-beae-78a870f25123.png)
 
-Our emergency website provides a quick and easy way for users to request an ambulance during a medical emergency. To make the process as efficient as possible, we ask the user for their phone number and the reason for the ambulance request. Our website also automatically retrieves the user's location, ensuring that emergency services can be dispatched to the correct location without delay.
+This is a quick and hassle free method. To make the process as efficient as possible, we ask the user for their phone number and the reason for the ambulance request. Our website also automatically retrieves the user's location, ensuring that emergency services can be dispatched to the correct location without delay.
 
 ![Screenshot 2023-04-15 084459](https://user-images.githubusercontent.com/113037145/232282801-9b98d758-75b2-4765-9e8f-528255c97561.png)
 
-As soon as the user sends an SOS request, nearby registered hospitals are immediately notified of the emergency and provided with the user's location. Hospitals can then accept the request and dispatch an ambulance to the scene as quickly as possible.
+As soon as the user sends an SOS request, registered hospitals are immediately notified of the emergency and provided with the user's location. Hospitals can then accept the request and dispatch an ambulance to the scene as quickly as possible.
 
 ![Screenshot 2023-04-15 123520](https://user-images.githubusercontent.com/113037145/232282831-826a65da-35e6-4055-95cc-ccd1bfd5e35b.png)
 
-To keep the user informed of the ambulance's progress, we provide a real-time map that tracks the ambulance's location and tracking on a map using leaflet.js, a javascript library. Additionally, our website provides the user with helpful tips and emergency procedures that they can follow while waiting for the ambulance to arrive. These tips may include basic first aid procedures, such as how to control bleeding or perform CPR, that can make a critical difference in emergency situations.
+As this is a time of panic and concern, to keep the user informed of the ambulance's progress, we provide a real-time map that tracks the ambulance's location and tracking on a map using leaflet.js, a javascript library. Additionally, our website provides the user with helpful tips and emergency procedures that they can follow while waiting for the ambulance to arrive. These tips may include basic first aid procedures, such as how to control bleeding or perform CPR, that can make a critical difference in emergency situations.
 
 In addition to the emergency ambulance service, our website features a comprehensive general services page that is designed to provide additional support to users during an emergency. The general services page includes two key sections - an emergency procedures page and a chatbot feature.
 
