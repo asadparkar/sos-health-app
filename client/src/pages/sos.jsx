@@ -122,7 +122,7 @@ setAmbList(filteredData)
         />
         <Marker position={[latitude, longitude]}>
             <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            you <br /> 
             </Popup>
         </Marker>
         <div>
@@ -131,7 +131,7 @@ setAmbList(filteredData)
             <div key={ambs.id}>
               <Marker position={[ambs.latitude,ambs.longitude]} icon={iconPerson}>
                <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            ambulance. <br /> 
                </Popup>
              </Marker>
               {/* <div>{ambs.latitude}</div>
