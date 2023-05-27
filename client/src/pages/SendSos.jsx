@@ -71,7 +71,7 @@ const SendSos = () => {
         })
     },[render])
   return (
-    <div className='font-medium flex justify-center' style={{fontFamily:'Raleway',height:'60vh'}}>
+    <div className='font-medium flex justify-center' style={{fontFamily:'Raleway',height:'80vh'}}>
         <div className='p-4 bg-red-300 sm:w-1/2 w-full flex flex-col items-center'>
           <h1 className='text-3xl font-black mt-10'>Phone Number</h1>
           <input onChange={(e)=>{setPhoneNo(e.target.value)}} className='p-2 bg-gray-200 rounded-md w-5/6 mt-12' placeholder='Phone Number'/>

@@ -54,7 +54,7 @@ const Help = () => {
             <div className='border-black flex flex-col justify-center items-center' style={{border:'1px solid'}}>
              <img className='proc_img' style={{width:170,transition:'all 0.5s'}} src={choking} alt='heart' />
             </div>
-             <h1 className='text-center mt-2 text-2xl font-black opacity-70 text-gray-500' id='proc_text'>Chocking</h1>
+             <h1 className='text-center mt-2 text-2xl font-black opacity-70 text-gray-500' id='proc_text'>Choking</h1>
           </div>
           <div onClick={()=>{onOpen();settCurrent(4);setTitle('Burns Guidelines')}} className='flex flex-col border-red-500 p-4 rounded-lg shadow-lg hover:shadow-2xl' style={{borderWidth:'2px',transition:'all 0.3s'}}>
             <div className='border-black flex flex-col justify-center items-center' style={{border:'1px solid'}}>

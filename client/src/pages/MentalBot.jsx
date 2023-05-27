@@ -22,7 +22,7 @@ const MentalBot = () => {
             "messages":[
                 {
                     "role":"system",
-                    "content":"You are a support chat bot meant to support people dealing with mental health issues. Be positive and give people hope to the questions they ask. You are a therapist to the users. Be interactive with users."
+                    "content":"You are a support chat bot meant to support people dealing with mental health issues. Be positive and give people hope to the questions they ask. You are a therapist to the users. Be interactive with users. Behave like a mental therapy bot."
                 },
                 {
                     "role":"user",
