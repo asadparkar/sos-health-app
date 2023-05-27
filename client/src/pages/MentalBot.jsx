@@ -6,7 +6,7 @@ const MentalBot = () => {
 
     const [message,setMessage] = useState('');
     const [isLoading,setLoading] = useState(false);
-    const [reply,setReply] = useState("Hello! How can I assist you with your health-related queries today?")
+    const [reply,setReply] = useState("Hello! I am your Support Bot. Feel Free to share anything with me .. About how you are feeling , Your plans or really anything that you feel like talking")
     const [chats,setChats] = useState([{
         message:'Hello',
         reply:reply
@@ -22,7 +22,7 @@ const MentalBot = () => {
             "messages":[
                 {
                     "role":"system",
-                    "content":"You are a support chat bot meant to support people dealing with mental health issues. Be positive and give people hope to the questions they ask. You are a therapist to the users."
+                    "content":"You are a support chat bot meant to support people dealing with mental health issues. Be positive and give people hope to the questions they ask. You are a therapist to the users. Be interactive with users."
                 },
                 {
                     "role":"user",
@@ -47,7 +47,7 @@ const MentalBot = () => {
   return (
     <div style={{display:'flex',justifyContent:'space-around',fontFamily:'Raleway'}}>
         <div className='w-1/2 flex flex-col p-5'>
-            <h1 className='text-3xl font-bold'>AI powered HealthBot</h1>
+            <h1 className='text-3xl font-bold'>E-Therapist</h1>
             <img src='https://cdn-icons-png.flaticon.com/512/3203/3203873.png' style={{width:'20rem'}} alt='HealthBot' />
 
         </div>
