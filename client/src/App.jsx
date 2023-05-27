@@ -16,6 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './pages/NotFound'
 import MentalBot from './pages/MentalBot'
 
+import Account from './components/Account'
 function App() {
 
   return (
@@ -32,6 +33,11 @@ function App() {
           <Home />
           </ProtectedRoute>
           } />
+          <Route path='/account' element={
+        <ProtectedRoute>
+          <Account />
+        </ProtectedRoute>
+      } />
           <Route path='/sendSos' element={
           <ProtectedRoute>
           <SendSos />
