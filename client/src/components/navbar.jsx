@@ -22,6 +22,7 @@ import {
   ChevronRightIcon
 } from "@chakra-ui/icons"
 import {useNavigate} from 'react-router-dom'
+import {Link as Linkk} from "react-router-dom"
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -76,6 +77,7 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
+          <Linkk to="/">
           <Button
             as={"a"}
             fontSize={"sm"}
@@ -85,6 +87,8 @@ export default function WithSubnavigation() {
           >
             Sign In
           </Button>
+          </Linkk>
+          <Linkk to="/signup">
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
@@ -99,6 +103,7 @@ export default function WithSubnavigation() {
           >
             Sign Up
           </Button>
+          </Linkk>
         </Stack>
       </Flex>
 
@@ -269,12 +274,12 @@ const NAV_ITEMS = [
       {
         label: "SOS",
         subLabel: "Avail SOS Service and Save Your Loved One",
-        href: "#"
+        href: "/sendSOS"
       },
       {
         label: "General Health",
         subLabel: "General Health Services for you",
-        href: "#"
+        href: "/general"
       }
     ]
   },
@@ -298,7 +303,7 @@ const NAV_ITEMS = [
   //   href: "#"
   // },
   {
-    label: "About",
-    href: "https://google.com"
+    label: "Home",
+    href: "/home"
   }
 ]
