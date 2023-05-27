@@ -11,6 +11,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute'
 import Ambulance from './pages/ambulance'
 import Hospital from './pages/hospital'
+import NotFound from '../src/pages/NotFound'
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
      <AuthContextProvider>
      <Routes>
       <Route path='/' element={<Signin />} />
+      <Route path='*' element={<NotFound />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/account' element={
         <ProtectedRoute>

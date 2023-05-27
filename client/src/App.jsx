@@ -13,6 +13,7 @@ import Signin from './components/Signin';
 import Signup from './components/Signup';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
      <AuthContextProvider>
         <Routes>
         <Route path='/' element={<Signin />} />
+        <Route path='*' element={<NotFound />} />
         <Route path='/signup' element={<Signup />} />
           <Route path='/home' element={
             <ProtectedRoute>
