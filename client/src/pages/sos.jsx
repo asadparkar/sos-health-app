@@ -4,7 +4,7 @@ import L from 'leaflet';
 import ambulance from '../assets/ambulance.svg'
 import {useLocation} from 'react-router-dom'
 import {collection,query,where,onSnapshot} from 'firebase/firestore'
-import { db } from '../../firebase';
+import { db } from '../firebase';
 
 const Sos = () => {
   const [latitude,setLatitude] = useState();

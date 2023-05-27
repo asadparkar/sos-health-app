@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../firebase';
+import { db } from '../firebase';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 
 const SendSos = () => {
