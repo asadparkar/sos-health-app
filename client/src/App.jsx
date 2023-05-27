@@ -17,6 +17,8 @@ import NotFound from './pages/NotFound'
 import MentalBot from './pages/MentalBot'
 
 import Account from './components/Account'
+import Mental from './pages/Mental'
+import Meditation from './pages/Meditation'
 function App() {
 
   return (
@@ -66,6 +68,16 @@ function App() {
           <Route path='/mental-health' element={
           <ProtectedRoute>
           <MentalBot />
+          </ProtectedRoute>
+          } />
+          <Route path='/mental' element={
+          <ProtectedRoute>
+          <Mental />
+          </ProtectedRoute>
+          } />
+          <Route path='/meditation' element={
+          <ProtectedRoute>
+          <Meditation />
           </ProtectedRoute>
           } />
         </Routes>
