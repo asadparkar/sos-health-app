@@ -14,6 +14,7 @@ import Signup from './components/Signup';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './pages/NotFound'
+import MentalBot from './pages/MentalBot'
 
 function App() {
 
@@ -54,6 +55,11 @@ function App() {
           <Route path='/general' element={
           <ProtectedRoute>
           <General />
+          </ProtectedRoute>
+          } />
+          <Route path='/mental-health' element={
+          <ProtectedRoute>
+          <MentalBot />
           </ProtectedRoute>
           } />
         </Routes>
