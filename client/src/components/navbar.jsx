@@ -23,10 +23,28 @@ import {
 } from "@chakra-ui/icons"
 import {useNavigate} from 'react-router-dom'
 import {Link as Linkk} from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { UserAuth } from '../context/AuthContext';
 
 export default function WithSubnavigation() {
+  const { user, logout } = UserAuth();
+  const [LoggedIn,setLoggedIn] = useState(false);
+  useEffect(()=>{
+    if (user){
+      setLoggedIn(true);
+    }
+  },[])
   const { isOpen, onToggle } = useDisclosure()
   const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+      console.log('You are logged out')
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
   return (
     <Box>
       <Flex
@@ -78,6 +96,7 @@ export default function WithSubnavigation() {
           spacing={6}
         >
           <Linkk to="/">
+          {!user && <div>
           <Button
             as={"a"}
             fontSize={"sm"}
@@ -87,8 +106,11 @@ export default function WithSubnavigation() {
           >
             Sign In
           </Button>
+          </div>}
+
           </Linkk>
           <Linkk to="/signup">
+          {!user && <div>
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
@@ -103,6 +125,24 @@ export default function WithSubnavigation() {
           >
             Sign Up
           </Button>
+          </div>}
+          {user && <div>
+          <Button
+          onClick={handleLogout}
+            as={"a"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color={"white"}
+            bg={"#EA5455"}
+            href={"#"}
+            _hover={{
+              bg: "red.400"
+            }}
+          >
+            Logout
+          </Button>
+          </div>}
           </Linkk>
         </Stack>
       </Flex>
