@@ -23,9 +23,9 @@ function App() {
 
   return (
     <div className="App">
+     <AuthContextProvider>
     <Navbar />
      <div className='sm:p-10 p-2' style={{minHeight:'85vh'}}>
-     <AuthContextProvider>
         <Routes>
         <Route path='/' element={<Signin />} />
         <Route path='*' element={<NotFound />} />
@@ -81,12 +81,17 @@ function App() {
           </ProtectedRoute>
           } />
         </Routes>
-      </AuthContextProvider>
+        
      </div>
+     
 
      <footer>
+     
       <Footer />
+      
      </footer>
+           </AuthContextProvider>
+
 
     </div>
   )
