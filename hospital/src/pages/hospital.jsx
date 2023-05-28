@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import { FaPhoneAlt,FaMapMarker,FaBriefcaseMedical} from "react-icons/fa";
 import { db } from '../firebase';
-import { addDoc, collection, getDocs, onSnapshot, doc, query, where, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, onSnapshot, doc, query, where, updateDoc , deleteDoc} from 'firebase/firestore';
 import { useEffect } from 'react';
 const Hospital = () => {
     const [isAmbulanceReady,setAmbulanceStatus] = useState(true);
@@ -71,8 +71,12 @@ const Hospital = () => {
       getAmbList();
         // calling our async function inside useEffect, helps us use "async" with this   
     },[])
-
-
+    // const deleteRequest = (id) =>{
+    //   const docRef = doc(db, "userdata", id)
+    //   deleteDoc(docRef).then(()=>{
+    //     console.log("request deleted")
+    //   })
+    // }
   return (
     <div className='flex justify-between h-screen' style={{fontFamily:'Raleway',fontWeight:'bold'}}>
         <div style={{}}>
@@ -122,6 +126,7 @@ const Hospital = () => {
                 <p className='ml-2'>Latitude : {users.latitude} Longitude : {users.longitude} </p>
               </div>
       <button className='bg-green-600 p-1 text-white rounded-md mt-3' onClick={()=>{updateUserStatus(users.id)}}>Accept</button>
+      {/* <button className='bg-red-400 p-1 text-white rounded-md' onClick={()=>{deleteRequest(users.id)}}>Delete</button> */}
         </div>
       ))}
           </div>
