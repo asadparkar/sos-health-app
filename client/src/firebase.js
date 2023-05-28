@@ -55,25 +55,35 @@ import {getFirestore} from "firebase/firestore"
 //   measurementId: "G-3XMZPDJGLK"
 // };
 //sixth db
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDFUg1vP4QU0uilFAFm_K8SLIsDxAfhW6U",
-//   authDomain: "sixth-86ece.firebaseapp.com",
-//   projectId: "sixth-86ece",
-//   storageBucket: "sixth-86ece.appspot.com",
-//   messagingSenderId: "413262547628",
-//   appId: "1:413262547628:web:a764419d8d10ec3154ad09",
-//   measurementId: "G-EJMSBC167T"
-// };
-//extra db
 const firebaseConfig = {
-  apiKey: "AIzaSyBvRnSEsLOywvwtZ1k0KaQmW_7IbybVtZ4",
-  authDomain: "extra-1faee.firebaseapp.com",
-  projectId: "extra-1faee",
-  storageBucket: "extra-1faee.appspot.com",
-  messagingSenderId: "698614088017",
-  appId: "1:698614088017:web:e9eeb5d14e8ec1d1825370",
-  measurementId: "G-8F1WE6ELWC"
+  apiKey: "AIzaSyDFUg1vP4QU0uilFAFm_K8SLIsDxAfhW6U",
+  authDomain: "sixth-86ece.firebaseapp.com",
+  projectId: "sixth-86ece",
+  storageBucket: "sixth-86ece.appspot.com",
+  messagingSenderId: "413262547628",
+  appId: "1:413262547628:web:a764419d8d10ec3154ad09",
+  measurementId: "G-EJMSBC167T"
 };
+//extra db
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBvRnSEsLOywvwtZ1k0KaQmW_7IbybVtZ4",
+//   authDomain: "extra-1faee.firebaseapp.com",
+//   projectId: "extra-1faee",
+//   storageBucket: "extra-1faee.appspot.com",
+//   messagingSenderId: "698614088017",
+//   appId: "1:698614088017:web:e9eeb5d14e8ec1d1825370",
+//   measurementId: "G-8F1WE6ELWC"
+// };
+//extra2 db
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCGFe7klub6WZLH2b9EL8sBQBR2rwXflUw",
+//   authDomain: "extra2-215c9.firebaseapp.com",
+//   projectId: "extra2-215c9",
+//   storageBucket: "extra2-215c9.appspot.com",
+//   messagingSenderId: "145106316012",
+//   appId: "1:145106316012:web:c4bed312794da21b3b53c9",
+//   measurementId: "G-JT98QX5CYE"
+// };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

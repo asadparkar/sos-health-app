@@ -96,7 +96,7 @@ const Hospital = () => {
             </div>
               <div className='items-center mt-2' style={{display:'flex'}}>
                 <FaMapMarker />
-                <p className='ml-2'>Latitude : {amb.latitude} Longitude : {amb.longitude} </p>
+                <p className='ml-2'>Latitude : {amb.latitude} Longgitude : {amb.longitude} </p>
               </div>
               <button className='bg-red-400 p-1 text-white rounded-md' onClick={()=>{updateAmbulanceStatus(amb.id)}}>Dispatch</button>
         </div>

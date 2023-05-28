@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Ambulance from './pages/ambulance'
 import Hospital from './pages/hospital'
 import NotFound from '../src/pages/NotFound'
+import SendSMS from './pages/SendSMS'
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/' element={<Signin />} />
       <Route path='*' element={<NotFound />} />
       <Route path='/signup' element={<Signup />} />
+      <Route path="/sms" element={<SendSMS />} />
       <Route path='/account' element={
         <ProtectedRoute>
           <Account />

@@ -19,6 +19,7 @@ import MentalBot from './pages/MentalBot'
 import Account from './components/Account'
 import Mental from './pages/Mental'
 import Meditation from './pages/Meditation'
+import UserProfile from './components/UserProfile'
 function App() {
 
   return (
@@ -30,6 +31,11 @@ function App() {
         <Route path='/' element={<Signin />} />
         <Route path='*' element={<NotFound />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/profile' element={
+            <ProtectedRoute>
+          <UserProfile />
+          </ProtectedRoute>
+          } />
           <Route path='/home' element={
             <ProtectedRoute>
           <Home />
