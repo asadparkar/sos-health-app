@@ -54,16 +54,16 @@ import {getFirestore} from "firebase/firestore"
 //   appId: "1:1021343297610:web:472f3609a8154ad733f6b3",
 //   measurementId: "G-3XMZPDJGLK"
 // };
-//sixth db
-const firebaseConfig = {
-  apiKey: "AIzaSyDFUg1vP4QU0uilFAFm_K8SLIsDxAfhW6U",
-  authDomain: "sixth-86ece.firebaseapp.com",
-  projectId: "sixth-86ece",
-  storageBucket: "sixth-86ece.appspot.com",
-  messagingSenderId: "413262547628",
-  appId: "1:413262547628:web:a764419d8d10ec3154ad09",
-  measurementId: "G-EJMSBC167T"
-};
+// //sixth db
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDFUg1vP4QU0uilFAFm_K8SLIsDxAfhW6U",
+//   authDomain: "sixth-86ece.firebaseapp.com",
+//   projectId: "sixth-86ece",
+//   storageBucket: "sixth-86ece.appspot.com",
+//   messagingSenderId: "413262547628",
+//   appId: "1:413262547628:web:a764419d8d10ec3154ad09",
+//   measurementId: "G-EJMSBC167T"
+// };
 //extra db
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBvRnSEsLOywvwtZ1k0KaQmW_7IbybVtZ4",
@@ -84,6 +84,15 @@ const firebaseConfig = {
 //   appId: "1:145106316012:web:c4bed312794da21b3b53c9",
 //   measurementId: "G-JT98QX5CYE"
 // };
+//extra3 db
+const firebaseConfig = {
+  apiKey: "AIzaSyCmD7lN2RWYasUDBKkvg5k6YFMfOFUsBmo",
+  authDomain: "extra3-16245.firebaseapp.com",
+  projectId: "extra3-16245",
+  storageBucket: "extra3-16245.appspot.com",
+  messagingSenderId: "168448291710",
+  appId: "1:168448291710:web:8860c98c16602d3fe0392f"
+};
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
