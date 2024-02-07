@@ -1,6 +1,6 @@
 # sos-health-app
 
-##CLIENT SIDE link - https://yoursos.site/
+##CLIENT SIDE link - https://yoursos.site/ (NOT ACTIVE AS OF NOW)
 
 ##HOSPITAL SIDE link - https://spontaneous-mandazi-552d92.netlify.app/
 
